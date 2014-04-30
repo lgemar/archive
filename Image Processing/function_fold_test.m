@@ -36,6 +36,7 @@ map_functions(rand_files(4,2), @show_imgs, function_list1, entropy_filts, @show_
 combined_edges = @(img) function_fold(img, @sobel_edges.vert, @mat2gray) .* function_fold(img, @sobel_edges.hor, @mat2gray); 
 map_functions(rand_files(4,2), @show_imgs, combined_edges, @show_imgs); 
 
+% 
 
 
 

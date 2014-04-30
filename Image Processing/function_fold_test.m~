@@ -24,9 +24,8 @@ function_list1 = {@randomize_image, @rgb2gray, @median_filt, @sobel_edges.hor, @
 map_functions(rand_files(4,2), @show_imgs, function_list1);
 
 % try entropy filtering for the first time! 
-function_list1 = {@randomize_image, @rgb2gray, @median_filt, @sobel_edges.vert, @show_imgs};
 entropy_filts = {@entropy_filt, @mat2gray};
-map_functions(rand_files(4,2), @show_imgs, function_list1, entropy_filts, @show_imgs);
+map_functions(rand_files(4,2), @show_imgs, entropy_filts, @show_imgs);
 
 % try entropy filtering paired with some of the previous filters 
 function_list1 = {@randomize_image, @rgb2gray, @median_filt, @sobel_edges.vert, @show_imgs};
@@ -36,6 +35,10 @@ map_functions(rand_files(4,2), @show_imgs, function_list1, entropy_filts, @show_
 % try combining horizontal and vertical edge detection 
 combined_edges = @(img) function_fold(img, @sobel_edges.vert, @mat2gray) .* function_fold(img, @sobel_edges.hor, @mat2gray); 
 map_functions(rand_files(4,2), @show_imgs, combined_edges, @show_imgs); 
+
+% try just randomizing the image and then applying a threshold 
+function_list1 = {@randomize_image, @thresh_img}; 
+map_functions(rand_files(4,2), @show_imgs, function_list1, @show_imgs); 
 
 
 
