@@ -7,7 +7,7 @@ def randomDog():
 	rootdir = os.getcwd() + '/Images'
 
 	# All of the image folders organized by dog type
-	lst = os.listdir(path=rootdir)
+	lst = os.listdir(rootdir)
 
 	# Picks a random Folder
 	randomDog = random.choice(lst)
@@ -16,16 +16,16 @@ def randomDog():
 	pictureDirectory =rootdir + "/" + randomDog
 
 	# All of the pictures of the randome dog
-	doglist = os.listdir(path=pictureDirectory)
+	doglist = os.listdir(pictureDirectory)
 
 	# Picks a random picture
 	randomPicture = random.choice(doglist)
 
 	# Makes a path with a random dog and a random picture of said dog
-	picturePath = pictureDirectory + "/" + randomPicture
+	picturePath = "/Users/NelsonYanes/Dropbox/Spring 2014/CS51/final_project/Images/n02093754-Border_terrier/n02093754_7025.jpg"#pictureDirectory + "/" + randomPicture
 
 	# Simple print for verification of randomness
-	print(picturePath)
+	return picturePath
 
 # returns "num" random picture paths
 def randomDogs (num) : 

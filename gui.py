@@ -1,8 +1,10 @@
 # picture accessing
 import file_management
 import neural_network
+import test_script
+import csv_management
 
-import tkinter as tk
+import Tkinter as tk
 
 num_of_inputs = 3
 num_of_outputs = 1
@@ -11,6 +13,12 @@ network = neural_network.Network((num_of_inputs, num_of_hidden_nodes, num_of_out
 
 
 class Application(tk.Frame):
+    jpg_path = file_management.randomDog()
+
+    csv_path = csv_management.randomDog()
+
+    net_input = test_script.csv_to_array(csv_path)
+
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self.pack()
@@ -37,6 +45,7 @@ class Application(tk.Frame):
 
     # function meant to be executed when someone approves
     def say_yes(self):
+        print("I approve")
     	file_management.randomDog()
 
     # function meant to be exected when someone disapproves
