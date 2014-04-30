@@ -8,4 +8,3 @@ else
 end
 
 E1 = edge(BWI, 'canny');
-imshow(E1)

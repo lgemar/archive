@@ -1,14 +1,14 @@
 classdef sobel_edges 
 % applies a sobel edge-detecting filter to an image and shows the result 
-    properties (Constant)
+    properties
         h = fspecial('sobel'); 
     end
-    methods (Static = true)
+    methods 
         function out_img = hor(img)
-            out_img = imfilter(img, sobel_edges.h); 
+            out_img = imfilter(img, h); 
         end
         function out_img = vert(img)
-            out_img = imfilter(img, sobel_edges.h'); 
+            out_img = imfilter(img, h'); 
         end
     end
 end

@@ -7,7 +7,12 @@ function function_tester(f, rand_files)
 for i = 1:size(rand_files, 1)
     for j = 1:size(rand_files{i}, 2)
         current_image = imread(rand_files{i}{j}); 
-        f(current_image); 
+        try 
+            f(current_image); 
+        catch 
+            BW = rgb2gray(current_image);
+            f(BW);
+        end 
         pause(1); 
     end
 end
