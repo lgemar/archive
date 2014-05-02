@@ -4,7 +4,6 @@ import neural_network
 import test_script
 import csv_management
 import numpy as np 
-import os
 
 import Tkinter as tk
 from PIL import ImageTk, Image
@@ -20,12 +19,13 @@ class Application(tk.Frame):
     jpgg = file_management.randomDog()
     
     def get_csv(self):
+        self.net_input = None
         while self.net_input == None:    
             self.jpgg = file_management.randomDog()
-    
+
             csv_path = csv_management.randomDog(self.jpgg)
         
-            if os.path.isfile(csv_path):
+            if test_script.check_csv(csv_path):
                 self.net_input = test_script.csv_to_array(csv_path)
 
     def __init__(self, master=None):
@@ -62,22 +62,14 @@ class Application(tk.Frame):
     # function meant to be executed when someone approves
     def say_yes(self):
         print("I approve")
-        self.net_input = None
         self.get_csv();
-        
-        if self.net_input == None:
-            err = "undefined: no input"
-            print err
-        else:
-            count = 0
-            while count < 100:
-                err = network.Train(np.array(self.net_input), np.array([1]))
-                print self.net_input
-                count = count + 1
-        if self.net_input == None:
-            print "No CSV file"
-        else:
-            print(network.Run(np.array(self.net_input)))
+        count = 0
+        while count < 100:
+            err = network.Train(np.array(self.net_input), np.array([1]))
+            #print self.net_input
+            count = count + 1
+        print(network.Run(np.array(self.net_input)))
+        print err
             
         self.canvas.delete(self.item)
         self.jpgg = file_management.randomDog()   
@@ -85,25 +77,18 @@ class Application(tk.Frame):
         image = Image.open(jpg)
         self.photo = ImageTk.PhotoImage(image)
         self.item = self.canvas.create_image(0,0,image=self.photo,anchor="nw")
-    # function meant to be exected when someone disapproves
+    
+    # function meant to be executed when someone disapproves
     def say_no(self):
         print("I don't approve!")
-        self.net_input = None
         self.get_csv()
-        
-        if self.net_input == None:
-            err = "undefined: no input"
-            print err
-        else:
-            count = 0
-            while count < 100:
-                err = network.Train(np.array(self.net_input), np.array([0]))
-                print self.net_input
-                count = count + 1
-        if self.net_input == None:
-            print "No CSV File"
-        else:
-            print(network.Run(np.array(self.net_input)))
+        count = 0
+        while count < 100:
+            err = network.Train(np.array(self.net_input), np.array([0]))
+            #print self.net_input
+            count = count + 1
+        print(network.Run(np.array(self.net_input)))
+        print err
             
         self.canvas.delete(self.item)
         self.jpgg = file_management.randomDog()   

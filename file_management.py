@@ -22,8 +22,8 @@ def randomDog():
 	randomPicture = random.choice(doglist)
 
 	# Makes a path with a random dog and a random picture of said dog
-	picturePath = pictureDirectory + "/" + randomPicture #"/Users/Andre/Dropbox/final_project/Images/n02093754-Border_terrier/n02093754_7025.jpg"
-
+	picturePath = pictureDirectory + "/" + randomPicture 
+ 
 	# Simple print for verification of randomness
 	return picturePath
 
