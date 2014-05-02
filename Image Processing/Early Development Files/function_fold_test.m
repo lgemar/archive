@@ -1,3 +1,7 @@
+% This file uses the map_functions function and the fold_function (called
+% by map_functions) to try to put together filters in a way that optimally
+% extracts the dog. Most of these attempts were unsuccessful. 
+
 % try different combinations of filters 
 function_list_1 = {@randomize_image, @sobel_edges.vert, @thresh_img, @sobel_edges.hor, @show_imgs};
 map_functions(rand_files(2,2), function_list);
@@ -50,6 +54,7 @@ map_functions(rand_files(4,2), @rgb2gray, @mat2gray, @show_imgs, @stdfilt, @show
 % try a color filter 
 map_functions(rand_files(4,2), @show_imgs, @color_filter, @show_imgs); 
 
-
+% randomly generate ranges for the color filter 
+map_functions(rand_files(4,2), @show_imgs, @color_filter_test); 
 
 
