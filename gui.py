@@ -3,6 +3,7 @@ import file_management
 import neural_network
 import test_script
 import csv_management
+import numpy as np
 
 import Tkinter as tk
 
@@ -16,7 +17,8 @@ class Application(tk.Frame):
     jpg_path = file_management.randomDog()
 
     csv_path = csv_management.randomDog()
-
+    csv_path = '/Users/Andre/Dropbox/final_project/CSVS/n02093754-Border_terrier/n02093754_7025.csv'
+    
     net_input = test_script.csv_to_array(csv_path)
 
     def __init__(self, master=None):
@@ -46,11 +48,23 @@ class Application(tk.Frame):
     # function meant to be executed when someone approves
     def say_yes(self):
         print("I approve")
-    	file_management.randomDog()
+        count = 0
+        while count < 100:
+            err = network.Train(np.array(self.net_input), np.array([1]))
+            print err
+            count = count + 1
+        print(network.Run(np.array(self.net_input)))
 
     # function meant to be exected when someone disapproves
     def say_no(self):
-    	print("I don't approve!")
+        print("I don't approve!")
+        count = 0
+        while count < 100:
+            err = network.Train(np.array(self.net_input), np.array([0]))
+            print err
+            count = count + 1
+        print(network.Run(np.array(self.net_input)))
+      
 
 root = tk.Tk()
 app = Application(master=root)
