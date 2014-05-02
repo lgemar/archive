@@ -1,36 +1,8 @@
-import os
-import random
-
 # returns a random picture path
-def randomDog():
-    #Root Directory holding our image files
-    rootdir = os.getcwd() + '/CSVS'
-
-    # All of the image folders organized by dog type
-    lst = os.listdir(rootdir)
-
-    # Picks a random Folder
-    randomDog = random.choice(lst)
-
-    # Changes to that new directory
-    pictureDirectory =rootdir + "/" + randomDog
-
-    # All of the pictures of the randome dog
-    doglist = os.listdir(pictureDirectory)
-
-    # Picks a random picture
-    randomPicture = random.choice(doglist)
-
-    # Makes a path with a random dog and a random picture of said dog
-    picturePath = pictureDirectory + "/" + randomPicture
-
+def randomDog(picturepath):
+    
+    # replace parts of the filepath to get csv
+    csvPath = picturepath.replace("/Images/", "/CSVS/").replace(".jpg",".csv")
+    
     # Simple print for verification of randomness
-    return picturePath
-
-# returns "num" random picture paths
-def randomDogs (num) : 
-    while num > 0 :
-        randomDog()
-        num = num - 1
-
-randomDog()
+    return csvPath

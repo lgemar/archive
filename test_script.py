@@ -1,19 +1,26 @@
 import pandas as pd
-import numpy as np
-import Neural_Network
+import os
+
 
 # define a function that goes into a one row csv and pulls out a list of floats
 def csv_to_array(filename):   
-
     # read csv into dataframe
     inputs_df = pd.read_csv(filename) 
-
+    
     # take data from dataframe
-    inputs = list(map(float, list(inputs_df.columns.values)))
+    inputs = []
+    inputs.append(map(float, list(inputs_df.columns.values)))
 
     return inputs
 
+def check_csv(filename):
+    if os.path.isfile(filename):
+        df = pd.read_csv(filename)
 
-print csv_to_array('image_processing_data_test.csv')
-bpn = neural_network.Network((1,2,1))
-err = bpn.Train(np.array(csv_to_array('image_processing_data_test.csv')), np.array([1]))
+        if 'NaN' in list(df.columns.values):
+            print False
+            return False
+        else:
+            return True
+    else:
+        return False

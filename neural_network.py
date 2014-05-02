@@ -85,7 +85,7 @@ class Network:
            self.weights[index] -= trainingRate * weightDelta
        return error
 
-# create a test object
+'''# create a test object
 if __name__ == "__main__":
     bpn = Network((4,2,1))
     
@@ -96,13 +96,13 @@ if __name__ == "__main__":
     lnErr = .0003
     for i in range(lnMax+1):
         err = bpn.Train(lvInput, lvTarget)
-        '''if i % 10000 == 0:
-            print err'''
+        if i % 10000 == 0:
+            print err
         if err <= lnErr:
             print("Minimum error reached at iteration {0}".format(i))
             break
     lvOutput = bpn.Run(lvInput)
-    print("Input: {0}\nOutput: {1}".format(lvInput,lvOutput))
+    print("Input: {0}\nOutput: {1}".format(lvInput,lvOutput))'''
     
 
         
