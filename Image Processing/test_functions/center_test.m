@@ -1,0 +1,11 @@
+image = imread('dog3.jpg');
+[height, width, planes] = size(image);
+r = image(:,:,1);
+g = image(:,:,2);
+b = image(:,:,3);
+blueness = double(b) - max(double(r), double(g));
+mask = blueness < 45;
+labels = bwlabel(mask);
+id = labels(((height+1)/2), (width/2));
+dog = (labels == id);
+imagesc(dog);
