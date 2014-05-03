@@ -1,4 +1,7 @@
 function texture_sep(image) 
+% quantifies the texture of an image by using the entropy filter that finds
+% a measure of randomness in the 9x9 region of every pixel 
+
 imshow(image);
 pause(1);
 E = entropyfilt(image);

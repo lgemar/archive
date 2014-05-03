@@ -8,8 +8,10 @@ function processing_list = rand_files(num_dirs, num_files)
 % full path to the image database. 
 
 %% get a list of all the folders in the Images directory 
-root_path = '/Users/lukasgemar/Dropbox/final_project/Images';
-dirs = dir(root_path);
+root_path = '/Users/lukasgemar/Dropbox/';
+local_path = 'final_project/data/Images';
+full_path = [root_path, local_path]; 
+dirs = dir(full_path);
 dirs = dirs(4:end); 
 
 %% choose num_dirs random directories
@@ -23,7 +25,7 @@ dirs_oi = dirs(rand_ints);
 %% grab num_files random images from each directory 
 processing_list = cell(num_dirs, 1); 
 for i = 1:length(dirs_oi)
-    full_folder_path = [root_path '/' dirs_oi(i).name];
+    full_folder_path = [full_path '/' dirs_oi(i).name];
     file_names = dir(full_folder_path); 
     file_names = file_names(3:end); % get rid of '.' and '..' at the start 
     

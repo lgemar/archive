@@ -3,13 +3,15 @@ function processing_list = each_breed
 %   returns a list of file paths that represent one
 %   image for each breed of dog
 
-root_path = 'C:\Users\Ryan Meehan\Dropbox\finalproject\Image Processing\Images';
-dirs = dir(root_path);
+root_path = 'C:\Users\Ryan Meehan\Dropbox\';
+local_path = 'finalproject\Image Processing\data\Images';
+full_path = [root_path, local_path]; 
+dirs = dir(full_path);
 dirs = dirs(4:end);
 
 processing_list = cell(length(dirs), 1);
 for i = 1:length(dirs)
-    full_folder_path = [root_path '/' dirs(i).name];
+    full_folder_path = [full_path '/' dirs(i).name];
     file_names = dir(full_folder_path); 
     file_names = file_names(3:end); % get rid of '.' and '..' at the start 
 
