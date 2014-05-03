@@ -1,0 +1,10 @@
+image = imread('dog1.jpg');
+E = entropyfilt(image);
+Eim = mat2gray(E);
+imshow(Eim);
+BW1 = im2bw(Eim, .8);
+BWao = bwareaopen(BW1,2000);
+nhood = true(9);
+closeBWao = imclose(BWao,nhood);
+roughMask = imfill(closeBWao,'holes');
+imshow(roughMask);
