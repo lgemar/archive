@@ -66,13 +66,13 @@ class Application(tk.Frame):
 
     	# creates a button representing an approval
         self.approve = tk.Button(self)
-        self.approve["text"] = "Yes"
+        self.approve["text"] = "Like"
         self.approve["command"] = self.say_yes
         self.approve.pack(side="top")
 
         # creates a button representing a disapproval
         self.disapprove = tk.Button(self)
-        self.disapprove["text"] = "No"
+        self.disapprove["text"] = "Dislike"
         self.disapprove["command"] = self.say_no
         self.disapprove.pack(side="top")
 
@@ -92,7 +92,6 @@ class Application(tk.Frame):
         
     # function meant to be executed when someone approves
     def say_yes(self):
-        print("I approve")  
         # generate a jpg and get the associated array
         self.get_input_array()
         # initialize a counter        
@@ -108,7 +107,6 @@ class Application(tk.Frame):
     
     # function meant to be executed when someone disapproves
     def say_no(self):
-        print("I don't approve!")
         # generate a jpg and get the associated array
         self.get_input_array()
         # initialize a counter        

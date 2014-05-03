@@ -7,7 +7,7 @@ import random
 # returns a random picture path
 def randomDog(): 
       #Root Directory holding our image files
-	rootdir = os.getcwd() + '/Images'
+	rootdir = os.getcwd() + '/data' + '/Images'
 
 	# All of the image folders organized by dog type
 	lst = os.listdir(rootdir)

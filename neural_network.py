@@ -1,3 +1,9 @@
+'''This file implements a neural network. The implementation is adapted from 
+    A YouTube series by Ryan Harris!!! We attempted to optimize the network
+    for our specific project. The videos are linked (in a playlist) below. 
+    https://www.youtube.com/watch?v=XqRUHEeiyCs&list=PLRyu4ecIE9tibdzuhJr94uQeKnOFkkbq6    
+'''    
+
 # import important libraries
 import numpy as np
 import random
