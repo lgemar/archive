@@ -1,9 +1,12 @@
+''' file_management goes into the Images folder and pulls out a random jpg file '''
+
+
 import os
 import random
 
 # returns a random picture path
-def randomDog():
-	#Root Directory holding our image files
+def randomDog(): 
+      #Root Directory holding our image files
 	rootdir = os.getcwd() + '/Images'
 
 	# All of the image folders organized by dog type
