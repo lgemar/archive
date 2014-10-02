@@ -1,4 +1,4 @@
-archive
+achive
 =======
 
-These are read-only, inactive software projects.
+These are inactive software projects.
