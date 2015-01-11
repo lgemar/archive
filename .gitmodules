@@ -1,9 +1,9 @@
-[submodule "lukasgemar-cs61-psets"]
-	path = lukasgemar-cs61-psets
-	url = ./lukasgemar-cs61-psets/
 [submodule "lukasgemar-cs207"]
 	path = lukasgemar-cs207
-	url = ./lukasgemar-cs207/
+	url = git@code.seas.harvard.edu:lukasgemar-cs207/lukasgemar-cs207.git
+[submodule "lukasgemar-cs61-psets"]
+	path = lukasgemar-cs61-psets
+	url = git@code.seas.harvard.edu:~lukasgemar/cs61/lukasgemar-cs61-psets.git
 [submodule "verilog-code"]
 	path = verilog-code
-	url = ./verilog-code/
+	url = https://github.com/lukasgemar/verilog-code.git
