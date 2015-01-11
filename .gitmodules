@@ -1,0 +1,9 @@
+[submodule "lukasgemar-cs61-psets"]
+	path = lukasgemar-cs61-psets
+	url = ./lukasgemar-cs61-psets/
+[submodule "lukasgemar-cs207"]
+	path = lukasgemar-cs207
+	url = ./lukasgemar-cs207/
+[submodule "verilog-code"]
+	path = verilog-code
+	url = ./verilog-code/
